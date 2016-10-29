@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+    	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    	<title>Frets</title>
+    	<meta name="author" content="Jesse MacFadyen"/>
+    	<meta name="apple-mobile-web-app-capable" content="yes"/>
+        <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+        <!-- Path to Framework7 Library CSS, iOS Theme -->
+        <link rel="stylesheet" href="css/framework7.ios.min.css">
+        <!-- Path to Framework7 color related styles, iOS Theme -->
+        <link rel="stylesheet" href="css/framework7.ios.colors.min.css">
+        <!-- Path to your custom app styles-->
+        <link rel="stylesheet" href="css/fretsApp.css">
+    </head>
+    <body class="layout-dark theme-black">
+        <!-- Status bar overlay for fullscreen mode-->
+        <div class="statusbar-overlay"></div>
+        <!-- Panels overlay-->
+        <div class="panel-overlay"></div>
+        <!-- Left panel with reveal effect-->
+        <div class="panel panel-left panel-reveal">
+            <div class="content-block list-block">
+                <ul id="chordList"></ul>
+            </div>
+        </div>
+
+        <!-- Notes Popup -->
+        <div class="popup popup-notes">
+            <div class="content-block list-block">
+                <ul id="chordJump">
+                    <li id="cj_A"><span>A</span></li>
+                    <li id="cj_B"><span>B</span></li>
+                    <li id="cj_C"><span>C</span></li>
+                    <li id="cj_D"><span>D</span></li>
+                    <li id="cj_E"><span>E</span></li>
+                    <li id="cj_F"><span>F</span></li>
+                    <li id="cj_G"><span>G</span></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Views-->
+        <div class="views">
+            <!-- Your main view, should have "view-main" class-->
+            <div class="view view-main">
+                <!-- Top Navbar-->
+                <div class="navbar theme-orange">
+                    <!-- Navbar inner for Index page-->
+                    <div data-page="index" class="navbar-inner">
+
+                        <div class="left">
+                            <!-- Right link contains only icon - additional "icon-only" class-->
+                            <a href="#" class="link icon-only open-panel">
+                                 <i class="icon icon-bars"></i>
+                            </a>
+                        </div>
+
+                        <!-- We have home navbar without left link-->
+                        <div class="center sliding">Frets</div>
+                    </div>
+                </div>
+
+                <!-- Pages, because we need fixed-through navbar and toolbar, it has additional appropriate classes-->
+                <div class="pages navbar-through toolbar-through">
+                    <!-- Index Page-->
+                    <div data-page="index" class="page">
+                        <!-- Scrollable page content-->
+                        <div class="page-content">
+                            <div class="content-block" id="chordDiv">
+                            </div>
+                            <!--<div class="content-block-title">Side panels</div>
+                            <div class="content-block">
+                                <div class="row">
+                                    <div class="col-50"><a href="#" data-panel="left" class="button open-panel">Left Panel</a></div>
+                                    <div class="col-50"><a href="#" data-panel="right" class="button open-panel">Right Panel</a></div>
+                                </div>
+                            </div>-->
+                        </div>
+
+                                        <!-- Bottom Toolbar-->
+                <div class="toolbar">
+                    <div class="toolbar-inner">
+                        Boom
+                    </div>
+                </div>
+                    </div>
+
+
+
+                <div class="popup popup-chordjump">
+                    <div class="content-block">
+                        <p>chordjump</p>
+                        <p><a href="#" class="close-popup">Close popup</a></p>
+                    </div>
+                </div>
+        </div>
+        <script type="text/javascript" src="js/framework7.min.js"></script>
+        <script type="text/javascript" src="lib/raphael-min.js"></script>
+        <script type="text/javascript" src="js/chords.js"></script>
+        <script type="text/javascript" src="js/fretsApp.js"></script>
+        <script type="text/javascript" src="js/TunedInstrument.js"></script>
+    </body>
+</html>

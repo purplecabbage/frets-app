@@ -1,0 +1,153 @@
+
+{
+
+font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+
+}
+
+
+.view-left {
+  border-right: 1px solid #b2b2b2;
+}
+/* This will fix flicker navbar in left panel view */
+.panel-left .page-content {
+  padding: 0;
+
+}
+.panel-left .page {
+  margin-top: 44px;
+  padding-bottom: 44px;
+
+}
+.panel-left .navbar {
+  position: relative;
+  margin-bottom: -44px;
+}
+
+.page {
+  padding: 0px 0px 0px 16px;
+      background-image:url(../img/herringbone.png);
+    background-size:16px auto;
+    background-repeat: repeat-y;
+}
+
+#chordDiv {
+  min-width:200px;
+  min-height:200px;
+  border:solid 0px #999;
+
+}
+
+.page-content {
+
+  background-image:url(../img/adirondack_spruce_5_cup.jpg);
+
+  /*background-size:16px auto;
+  background-repeat: repeat-y;
+  padding-left:10px;*/
+}
+
+.item-divider {
+  background-color:Black;
+  text-align: right;
+}
+
+.list-block {
+  margin:0 0;
+}
+
+.content-block {
+  padding:0 0;
+}
+
+.center {
+    font-size:36px;
+    line-height:36px;
+    text-align:center;
+}
+
+li.item-content {
+
+    -ms-user-select:none;
+    user-select:none;
+    font-size: 18px;
+    font-weight:450;
+    line-height: 32px;
+    height:32px;
+
+    border-bottom: 1px solid #222;
+    border-top: 1px solid #333;
+
+    /*padding: 8px 48px;*/
+    color: #999;
+    text-shadow: 0px 2px 4px #111;
+    background-color:#000;
+    background-image: url(../img/debut_dark.png);
+
+}
+
+li.item-content.selected
+{
+    color:#F80;
+    background-image:none;
+    background-color:#222;
+}
+
+.layout-dark .item-divider
+{
+    padding:0 0;
+    margin:0 0;
+    padding-right:24px;
+    text-align:right;
+    color: #000;
+    text-shadow:none;
+    text-shadow: 2px 2px 6px #444;
+    font-size: 48px;
+    line-height: 48px;
+    height:48px;
+    font-weight:600;
+
+    background-image: url(../img/debut_dark.png);
+
+   /*background-image: url(../img/abalone.png);
+   -webkit-background-clip: text;
+   -webkit-text-fill-color: transparent;*/
+}
+
+#chordJump {
+    width:100%;
+    margin:0 auto;
+}
+
+.popup-notes {
+    background-color:#000;
+    width:120px;
+    height:100%;
+    text-align: center;
+}
+
+#chordJump li
+{
+    list-style: none;
+    min-width:72px;
+    min-height:48px;
+    border:solid 1px #666;
+    text-align:center;
+    text-shadow: 1px 1px 4px #666;
+    font-size:48px;
+    color:#111;
+    font-weight: bold;
+    line-height: 48px;
+    display:inline-block;
+    margin:8px 10px;
+    padding:12px 8px;
+    background-color:#000;
+
+/*    background-image: url(../img/rose2_wood_@2X.png);*/
+    background-image: url(../img/debut_dark.png);
+}
+
+
