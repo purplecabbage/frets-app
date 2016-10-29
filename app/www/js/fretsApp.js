@@ -185,9 +185,9 @@ function renderChord(index) {
                                headerGap + y * fretSpace,
                                stringSpace, fretSpace, 2);
 
-            elem.attr("stroke", "#FFF");
+            elem.attr({"stroke":"#FFF","stroke-width":4 });
             //elem.attr("fill", "rgba(255,255,255,1.0)");
-            elem.attr("stroke-width",4);
+
 
             // draw the fingerboard fret markers
             var fret = chord.rt + y;
