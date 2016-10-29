@@ -185,7 +185,7 @@ function renderChord(index) {
                                headerGap + y * fretSpace,
                                stringSpace, fretSpace, 2);
 
-            elem.attr({"stroke":"#FFF","stroke-width":5 });
+            elem.attr({"stroke":"#FFF","stroke-width":4 });
             //elem.attr("fill", "rgba(255,255,255,1.0)");
 
 
@@ -198,9 +198,9 @@ function renderChord(index) {
 
                 var circ = paper.circle( gutter + x * stringSpace + (stringSpace / 2),
                                          headerGap + y * fretSpace + (fretSpace / 2) , 12);
-                    circ.attr("stroke", gFretMarkerStrokeColor);
-                    circ.attr("fill", gFretMarkerFillColor);
-                    circ.attr("stroke-width",noteStrokeWidth);
+                    circ.attr({ "stroke" : gFretMarkerStrokeColor,
+                                "fill"   : gFretMarkerFillColor,
+                                "stroke-width" : noteStrokeWidth});
 
             }
             else if(fret == 11) { // 12th fret
@@ -208,9 +208,9 @@ function renderChord(index) {
                 if(x == 1 || x == 3) {
                     var circ = paper.circle( gutter + x * stringSpace + (stringSpace / 2),
                                              headerGap + y * fretSpace + (fretSpace / 2) , 12);
-                        circ.attr("stroke", gFretMarkerStrokeColor);
-                        circ.attr("fill", gFretMarkerFillColor);
-                        circ.attr("stroke-width",noteStrokeWidth);
+                        circ.attr({ "stroke" : gFretMarkerStrokeColor,
+                                    "fill" : gFretMarkerFillColor,
+                                    "stroke-width" : noteStrokeWidth});
                 }
             }
         }
@@ -246,10 +246,9 @@ function drawNut(paper) {
 
     var elem = paper.rect(gutter,headerGap - 8,
                           stringSpace * 5, 8, 2);
-
-    elem.attr("stroke", "#FFF");
-    elem.attr("fill", "#CCC");//rgba(255,255,255,0.2)");
-    elem.attr("stroke-width",5);
+    elem.attr({"stroke":"#FFF",
+               "fill":"#CCC",
+               "stroke-width":4});
 
 }
 
@@ -258,9 +257,9 @@ function drawFretPostitionText(paper,posText) {
     var y = headerGap + fretSpace  - fretSpace / 2;
 
     var txt = paper.text(x , y, posText);
-        txt.attr("font-size",noteLabelFontWidth);
-        txt.attr("font-weight",noteLabelFontWeight);
-        txt.attr("fill", noteLabelTextClr );
+        txt.attr({"font-size":noteLabelFontWidth,
+                  "font-weight":noteLabelFontWeight,
+                  "fill":noteLabelTextClr});
 }
 
 function addNote(paper,stringNum,fretNum,numText) {
@@ -290,12 +289,11 @@ function addNote(paper,stringNum,fretNum,numText) {
             addTapHandler(txt,elemToNoteData);
     }
     else {
-
-        var txt = paper.text(x , y, numText);
-            txt.attr("stroke", noteFillClr);
-            txt.attr("fill", fretNum ? noteStrokeClr : "#FFF");
-            txt.attr("font-size",noteLabelFontWidth);
-            txt.attr("font-weight",noteLabelFontWeight);
+        paper.text(x , y, numText)
+        .attr({"stroke":noteFillClr,
+                "fill":fretNum ? noteStrokeClr : "#FFF",
+                "font-size":noteLabelFontWidth,
+                "font-weight":noteLabelFontWeight});
     }
 }
 
