@@ -7,7 +7,7 @@ var headerGap = 80;
 
 var noteStrokeClr = "#000";
 var noteFillClr = "#333";
-var noteStrokeWidth = "3px";
+var noteStrokeWidth = 3;
 var noteLabelTextClr = "#f8f8f8";
 var noteLabelFontWidth = "20px";
 var noteLabelFontWeight = "bold";
@@ -185,7 +185,7 @@ function renderChord(index) {
                                headerGap + y * fretSpace,
                                stringSpace, fretSpace, 2);
 
-            elem.attr({"stroke":"#FFF","stroke-width":"4px" });
+            elem.attr({"stroke":"#FFF","stroke-width":5 });
             //elem.attr("fill", "rgba(255,255,255,1.0)");
 
 
@@ -248,12 +248,12 @@ function drawNut(paper) {
                           stringSpace * 5, 8, 2);
     elem.attr({"stroke":"#FFF",
                "fill":"#CCC",
-               "stroke-width":"4px"});
+               "stroke-width":5});
 
 }
 
 function drawFretPostitionText(paper,posText) {
-    var x = 10;//gutter - stringSpace;
+    var x = gutter - stringSpace;
     var y = headerGap + fretSpace  - fretSpace / 2;
 
     var txt = paper.text(x , y, posText);
