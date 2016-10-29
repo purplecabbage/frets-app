@@ -185,7 +185,7 @@ function renderChord(index) {
                                headerGap + y * fretSpace,
                                stringSpace, fretSpace, 2);
 
-            elem.attr({"stroke":"#FFF"});//,"stroke-width":4 });
+            elem.attr({"stroke":"#FFF","stroke-width":5 });
             //elem.attr("fill", "rgba(255,255,255,1.0)");
 
 
@@ -249,7 +249,7 @@ function drawNut(paper) {
 
     elem.attr("stroke", "#FFF");
     elem.attr("fill", "#CCC");//rgba(255,255,255,0.2)");
-    elem.attr("stroke-width",4);
+    elem.attr("stroke-width",5);
 
 }
 
