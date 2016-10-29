@@ -29,13 +29,13 @@ var myApp = new Framework7({
     animateNavBackIcon:true
 });
 
-Array.max = function() {
-  return Math.max.apply(null, this);
-};
+var maxItem = function(arr) {
+    return arr.slice().sort().pop();
+}
 
-Array.min = function() {
-  return Math.min.apply(null, this);
-};
+var minItem = function(arr) {
+    return arr.slice().sort()[0];
+}
 
 // Export selectors engine
 var $$ = Dom7;
@@ -171,9 +171,9 @@ function renderChord(index) {
     });
 
     // calculate how many frets we need to draw, min 5
-    var chordSpan = 4;//parseInt(Array.max(frets)) - parseInt(Array.min(frets));
-    if(chordSpan < 4) {
-        chordSpan = 4;
+    var chordSpan = maxItem(frets) - minItem(frets);
+    if(chordSpan < 5) {
+        chordSpan = 5;
     }
 
     // for each string 0-5
@@ -186,7 +186,7 @@ function renderChord(index) {
                                stringSpace, fretSpace, 2);
 
             elem.attr({"stroke":"#FFF","stroke-width":5 });
-            //elem.attr("fill", "rgba(255,255,255,1.0)");
+            elem.attr("fill", "rgba(0,0,0,0.1)");
 
 
             // draw the fingerboard fret markers
@@ -245,7 +245,7 @@ function renderChord(index) {
 function drawNut(paper) {
 
     var elem = paper.rect(gutter,headerGap - 8,
-                          stringSpace * 5, 8, 2);
+                          stringSpace * 5, 12, 2);
     elem.attr({"stroke":"#FFF",
                "fill":"#CCC",
                "stroke-width":5});
