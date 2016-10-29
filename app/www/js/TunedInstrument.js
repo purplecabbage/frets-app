@@ -1,8 +1,8 @@
 
 (function(exports){
 
-	var NumNotes = 128; // 128 midi notes from 0-127
-	var notes;
+    var NumNotes = 128; // 128 midi notes from 0-127
+    var notes;
 
     var AudioCtx = AudioContext || webkitAudioContext;
 
@@ -17,13 +17,13 @@
 
 // Initialize note pitches using equal temperament (12-TET)
     notes = [];
-	for (var i = 0; i < NumNotes; i++)
-	{
-		notes[i] = {
-			pitch:440 * Math.pow(2, (i - 69)/12.0), // A4 = MIDI key 69
-		};
-		console.log(i + ":" + notes[i].pitch);
-	}
+    for (var i = 0; i < NumNotes; i++)
+    {
+        notes[i] = {
+            pitch:440 * Math.pow(2, (i - 69)/12.0), // A4 = MIDI key 69
+        };
+        //console.log(i + ":" + notes[i].pitch);
+    }
 
 
 
@@ -59,23 +59,23 @@
             request.send();
         },
         noteOn:function(noteNum){
-        	var source = this.audioContext.createBufferSource(); // creates a sound source
+            var source = this.audioContext.createBufferSource(); // creates a sound source
             source.buffer = this.voiceBuffer;  // todo: multiple buffers for pitch ranges
             source.playbackRate.value = notes[noteNum].pitch / notes[48].pitch;
             source.connect(this.audioContext.destination);
             this.bufferSources.push(source);
             if(this.bufferSources.length > this.polyphony) {
-            	var src = this.bufferSources.shift();
-            	//console.log("stopping src " + src);
-            	src && src.stop();
+                var src = this.bufferSources.shift();
+                //console.log("stopping src " + src);
+                src && src.stop();
             }
             var self = this;
             source.onended = function() {
-            	var index = self.bufferSources.indexOf(source);
-            	//console.log("onended " + index)
-            	if(index > -1) {
-	            	self.bufferSources.splice(index,1);
-	            }
+                var index = self.bufferSources.indexOf(source);
+                //console.log("onended " + index)
+                if(index > -1) {
+                    self.bufferSources.splice(index,1);
+                }
             }
             source.start();
         },
