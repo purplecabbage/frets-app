@@ -7,12 +7,12 @@ var headerGap = 80;
 
 var noteStrokeClr = "#000";
 var noteFillClr = "#333";
-var noteStrokeWidth = 3;
+var noteStrokeWidth = "3px";
 var noteLabelTextClr = "#f8f8f8";
 var noteLabelFontWidth = "20px";
 var noteLabelFontWeight = "bold";
-var gFretMarkerStrokeColor = "#FFF";//rgba(0,0,0,1.0)";
-var gFretMarkerFillColor = "#CCC";//rgba(16,16,16,0.5)";
+var gFretMarkerStrokeColor = "#FFFFFF";//rgba(0,0,0,1.0)";
+var gFretMarkerFillColor = "#CCCCCCC";//rgba(16,16,16,0.5)";
 
 var currentIndex = -1;
 var chordCount;
@@ -185,7 +185,7 @@ function renderChord(index) {
                                headerGap + y * fretSpace,
                                stringSpace, fretSpace, 2);
 
-            elem.attr({"stroke":"#FFF","stroke-width":4 });
+            elem.attr({"stroke":"#FFF","stroke-width":"4px" });
             //elem.attr("fill", "rgba(255,255,255,1.0)");
 
 
@@ -248,7 +248,7 @@ function drawNut(paper) {
                           stringSpace * 5, 8, 2);
     elem.attr({"stroke":"#FFF",
                "fill":"#CCC",
-               "stroke-width":4});
+               "stroke-width":"4px"});
 
 }
 
