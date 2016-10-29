@@ -338,36 +338,7 @@ var ChordData = {
         fret: "3,-1,0,0,1,3",
         fingers: "3,0,0,0,1,4"
 
-    },
-    ],
-
-
-    Kords: [{
-        base: "A"
-    }, {
-        base: "A#"
-    }, {
-        base: "B"
-    }, {
-        base: "C"
-    }, {
-        base: "C#"
-    }, {
-        base: "D"
-    }, {
-        base: "D#"
-    }, {
-        base: "E"
-    }, {
-        base: "F"
-    }, {
-        base: "F#"
-    }, {
-        base: "G"
-    }, {
-        base: "G#"
     }
-
     ],
 
     getNoteName: function(stringNum, fret, bSharpNotation) {
