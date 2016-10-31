@@ -1,7 +1,13 @@
 
 *{
-
   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  max-width:480px;
+  max-height:720px;
+  background-color:#213;
+  margin:0 auto;
 }
 
 
