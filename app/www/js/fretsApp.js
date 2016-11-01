@@ -58,20 +58,51 @@ function init() {
     $$('#li_' + localStorage.lastChord).addClass('selected');
 
     piano = new TunedInstrument();
+    piano.polyphony = 6;
     piano.loadVoice("sounds/AccGuitar.wav",48);
+
+    $$("#strumUp").on('click',function(){
+        strumChord(true);
+    });
+    $$("#strumDown").on('click',function(){
+        strumChord(false);
+    });
+}
+
+function strumChord(isUp) {
+    var chord = chordSource[currentIndex];
+    var frets = chord.fret.split(",");
+    frets = frets.map(function(elem){
+        return parseInt(elem);
+    });
+    var index = 0;
+    var later = setInterval(function() {
+        if(index >= frets.length) {
+            clearInterval(later);
+        }
+        else {
+            var n = isUp ? index : 6 - index;
+            var fret = frets[n];
+            if(fret > -1) {
+                var noteNumber = ChordData.MidiRoots[n] + fret;
+                piano.noteOn(noteNumber);
+            }
+            index++;
+        }
+    },100);
 }
 
 function addTapHandler(elem,handler) {
     elem[tapEventFunction](handler);
 }
 
+// called in the context of a fret marker
 function elemToNoteData() {
      var noteNumber = ChordData.MidiRoots[this.data('stringNum')] + this.data('fretNum');
      playNote(noteNumber);
 }
 
 function playNote(noteNumber) {
-    // TODO: actually play the note ...
     console.log("noteNumber = " + noteNumber);
     piano.noteOn(noteNumber);
 }

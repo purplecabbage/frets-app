@@ -22,14 +22,14 @@
         <div class="panel-overlay"></div>
         <!-- Left panel with reveal effect-->
         <div class="panel panel-left panel-reveal">
-            <div class="content-block list-block">
+            <div class="content-block list-block list-block-search">
                 <ul id="chordList"></ul>
             </div>
         </div>
 
         <!-- Notes Popup -->
         <div class="popup popup-notes">
-            <div class="content-block list-block">
+            <div class="content-block list-block chord-wrap">
                 <ul id="chordJump">
                     <li id="cj_A"><span>A</span></li>
                     <li id="cj_B"><span>B</span></li>
@@ -69,6 +69,10 @@
                     <div data-page="index" class="page">
                         <!-- Scrollable page content-->
                         <div class="page-content">
+                            <p class="buttons-row">
+                                 <a href="#" id="strumUp" class="button">Strum Up</a>
+                                 <a href="#" id="strumDown" class="button">Strum Down</a>
+                            </p>
                             <div class="content-block" id="chordDiv">
                             </div>
                             <!--<div class="content-block-title">Side panels</div>
