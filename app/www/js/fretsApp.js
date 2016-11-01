@@ -78,8 +78,10 @@ function playNote(noteNumber) {
 
 
 function initRenderBounds() {
-    var w = window.innerWidth;
-    var h = window.innerHeight;
+    var rect = chordDiv.getBoundingClientRect();
+
+    var w = rect.width;
+    var h = rect.height;
 
     /* Defaults from back in the 320 days
         var gutter = 35;
