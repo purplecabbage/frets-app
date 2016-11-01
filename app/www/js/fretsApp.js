@@ -72,24 +72,34 @@ function init() {
 function strumChord(isUp) {
     var chord = chordSource[currentIndex];
     var frets = chord.fret.split(",");
-    frets = frets.map(function(elem){
-        return parseInt(elem);
-    });
-    var index = 0;
-    var later = setInterval(function() {
-        if(index >= frets.length) {
-            clearInterval(later);
+    var midiNotes = frets.map(function(elem,index){
+        var fret = parseInt(elem);
+        if(fret > -1) {
+            return ChordData.MidiRoots[index] + fret;
         }
         else {
-            var n = isUp ? index : 6 - index;
-            var fret = frets[n];
-            if(fret > -1) {
-                var noteNumber = ChordData.MidiRoots[n] + fret;
+            return -1;
+        }
+    });
+    if(!isUp) {
+        midiNotes.reverse();
+    }
+    var index = 0;
+    var doLater = function() {
+        if(index >= frets.length) {
+            clearInterval(interval);
+            // todo: turn all notes off
+        }
+        else {
+            var noteNumber = midiNotes[index];
+            if(noteNumber > -1) {
                 piano.noteOn(noteNumber);
             }
             index++;
         }
-    },100);
+    };
+    var interval = setInterval(doLater,200);
+    doLater();
 }
 
 function addTapHandler(elem,handler) {
