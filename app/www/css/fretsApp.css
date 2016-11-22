@@ -17,7 +17,6 @@ body {
 /* This will fix flicker navbar in left panel view */
 .panel-left .page-content {
   padding: 0;
-
 }
 .panel-left .page {
   margin-top: 44px;
@@ -30,26 +29,32 @@ body {
 }
 
 .page {
-  padding: 0px 0px 0px 16px;
-      background-image:url(../img/herringbone.png);
-    background-size:16px auto;
-    background-repeat: repeat-y;
+  padding: 0px 100px 0px 16px;
+  background-image:url(../img/herringbone.png);
+  background-size:16px auto;
+  background-repeat: repeat-y;
 }
 
 #chordDiv {
   min-width:200px;
   min-height:200px;
   border:solid 0px #999;
+  margin:0px auto;
+  padding:0 0;
 
 }
 
 .page-content {
 
   background-image:url(../img/adirondack_spruce_5_cup.jpg);
+  background-position-y:55px;
+  background-size:100% auto;
+  margin-top:-35px;
+  padding-bottom:35px;
+}
 
-  /*background-size:16px auto;
-  background-repeat: repeat-y;
-  padding-left:10px;*/
+.page-content .buttons-row {
+  margin:0 50px;
 }
 
 .item-divider {
@@ -63,6 +68,7 @@ body {
 
 .content-block {
   padding:0 0;
+
 }
 
 .center {
@@ -79,7 +85,6 @@ li.item-content {
     font-weight:450;
     line-height: 32px;
     height:32px;
-
     border-bottom: 1px solid #222;
     border-top: 1px solid #333;
 
@@ -129,6 +134,12 @@ li.item-content.selected
 /* middle */
 /*.chord-wrap {
 }*/
+
+#strumDown, #strumUp {
+  color:#FFF;
+  /*border:solid 1px Yellow;*/
+}
+
 
 
 #chordJump {
