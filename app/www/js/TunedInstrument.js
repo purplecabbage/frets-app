@@ -1,4 +1,5 @@
 
+
 (function(exports){
 
     var NumNotes = 128; // 128 midi notes from 0-127
@@ -8,7 +9,10 @@
 
 
     try {
-      AudioCtx =  window['webkitAudioContext'] || window['AudioContext'];
+
+      AudioCtx =  'webkitAudioContext' in window ? webkitAudioContext :
+                  ( 'AudioContext' in window ? AudioContext : null );
+
       var audioContext = new AudioCtx();
       audioContext = null;
     }
@@ -69,7 +73,9 @@
             if(this.bufferSources.length > this.polyphony) {
                 var src = this.bufferSources.shift();
                 //console.log("stopping src " + src);
-                src && src.stop();
+                if(src) {
+                    src.stop();
+                }
             }
             var self = this;
             source.onended = function() {
@@ -78,14 +84,14 @@
                 if(index > -1) {
                     self.bufferSources.splice(index,1);
                 }
-            }
+            };
             source.start();
         },
         noteOff:function(noteNum){
 
         }
 
-    }
+    };
 
     exports.TunedInstrument = TunedInstrument;
 
