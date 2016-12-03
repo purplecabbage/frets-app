@@ -29,11 +29,11 @@ var myApp = new Framework7({
     animateNavBackIcon:true
 });
 
-var maxItem = function(arr) {
+function maxItem(arr) {
     return arr.slice().sort().pop();
 }
 
-var minItem = function(arr) {
+function minItem(arr) {
     return arr.slice().sort()[0];
 }
 
@@ -228,6 +228,7 @@ function renderChord(index) {
 
     // calculate how many frets we need to draw, min 5
     var chordSpan = maxItem(frets) - minItem(frets);
+    var fret;
     if(chordSpan < 5) {
         chordSpan = 5;
     }
@@ -245,27 +246,27 @@ function renderChord(index) {
             elem.attr("fill", "rgba(0,0,0,0.1)");
 
             // draw the fingerboard fret markers
-            var fret = chord.rt + y;
+            fret = chord.rt + y;
+            var circ;
 
             // fret markers from zero based fret values, 3,5,7,9,12,15,17
             // only if x==2 because marker is in the center 012*345
             if(x == 2 && [2,4,6,8,14,16,18].indexOf(fret) > -1){
-
-                var circ = paper.circle( gutter + x * stringSpace + (stringSpace / 2),
-                                         headerGap + y * fretSpace + (fretSpace / 2) , 12);
-                    circ.attr({ "stroke" : gFretMarkerStrokeColor,
-                                "fill"   : gFretMarkerFillColor,
-                                "stroke-width" : noteStrokeWidth});
+                circ = paper.circle( gutter + x * stringSpace + (stringSpace / 2),
+                                     headerGap + y * fretSpace + (fretSpace / 2) , 12);
+                circ.attr({ "stroke" : gFretMarkerStrokeColor,
+                            "fill"   : gFretMarkerFillColor,
+                            "stroke-width" : noteStrokeWidth});
 
             }
             else if(fret == 11) { // 12th fret
                 // markers look like 01*23*45
                 if(x == 1 || x == 3) {
-                    var circ = paper.circle( gutter + x * stringSpace + (stringSpace / 2),
-                                             headerGap + y * fretSpace + (fretSpace / 2) , 12);
-                        circ.attr({ "stroke" : gFretMarkerStrokeColor,
-                                    "fill" : gFretMarkerFillColor,
-                                    "stroke-width" : noteStrokeWidth});
+                    circ = paper.circle( gutter + x * stringSpace + (stringSpace / 2),
+                                         headerGap + y * fretSpace + (fretSpace / 2) , 12);
+                    circ.attr({ "stroke" : gFretMarkerStrokeColor,
+                                "fill" : gFretMarkerFillColor,
+                                "stroke-width" : noteStrokeWidth});
                 }
             }
         }
@@ -283,7 +284,7 @@ function renderChord(index) {
     $$(".navbar-inner > .center").html(chord.name);
 
     for(var n = 0; n < frets.length; n++) {
-        var fret = frets[n];
+        fret = frets[n];
 
         if(posOffset > 0 && fret == -1) {
             // don't draw it
