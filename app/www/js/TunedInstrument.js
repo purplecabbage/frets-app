@@ -4,9 +4,11 @@
     var NumNotes = 128; // 128 midi notes from 0-127
     var notes;
 
-    var AudioCtx = AudioContext || webkitAudioContext;
+    var AudioCtx = null;
+
 
     try {
+      AudioCtx =  window['webkitAudioContext'] || window['AudioContext'];
       var audioContext = new AudioCtx();
       audioContext = null;
     }
