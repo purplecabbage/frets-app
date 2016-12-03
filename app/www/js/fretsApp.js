@@ -18,7 +18,7 @@ var currentIndex = -1;
 var chordCount;
 var chordSource;
 
-var piano; //Tuned Instrument
+var guitar; //Tuned Instrument
 
 var tapEventFunction = ('ontouchstart' in window) ? "touchstart" : "click";
 
@@ -57,9 +57,9 @@ function init() {
     renderChord(localStorage.lastChord || 0);
     $$('#li_' + localStorage.lastChord).addClass('selected');
 
-    piano = new TunedInstrument();
-    piano.polyphony = 6;
-    piano.loadVoice("sounds/AccGuitar.wav",48);
+    guitar = new TunedInstrument();
+    guitar.polyphony = 6;
+    guitar.loadVoice("sounds/AccGuitar.wav",48);
 
     $$("#strumUp").on('click',function(){
         strumChord(true);
@@ -103,7 +103,7 @@ function strumChord(isUp) {
         else {
             var noteNumber = midiNotes[index];
             if(noteNumber > -1) {
-                piano.noteOn(noteNumber);
+                guitar.noteOn(noteNumber);
             }
             index++;
         }
@@ -124,7 +124,7 @@ function elemToNoteData() {
 
 function playNote(noteNumber) {
     console.log("noteNumber = " + noteNumber);
-    piano.noteOn(noteNumber);
+    guitar.noteOn(noteNumber);
 }
 
 
@@ -145,7 +145,8 @@ function initRenderBounds() {
     // calc space between frets
     fretSpace = Math.floor(stringSpace * 1.4 );
     gutter = Math.round((w - ((stringSpace ) * 5)) / 2);
-    headerGap = Math.floor(fretSpace * 1.25);
+    //headerGap = Math.floor(fretSpace * 1.25);
+    console.log("headerGap = " + headerGap);
 }
 
 var firstRun = 1;
@@ -212,6 +213,8 @@ function renderChord(index) {
 
     paper.clear();
 
+    //paper.rect(0, 0, paper.width, paper.height,20)
+
     var chord = chordSource[currentIndex];
     var frets = chord.fret.split(",");
     var fingers = chord.fingers ? chord.fingers.split(",") : [];
@@ -229,7 +232,7 @@ function renderChord(index) {
         chordSpan = 5;
     }
 
-    // for each string 0-5
+    // for each string 0-5, I will always have 6 strings so deal with it
     for(var x = 0; x < 5; x++) {
         // for each fret
         for(var y = 0; y < chordSpan; y++) {
@@ -240,7 +243,6 @@ function renderChord(index) {
 
             elem.attr({"stroke":"#FFF","stroke-width":5 });
             elem.attr("fill", "rgba(0,0,0,0.1)");
-
 
             // draw the fingerboard fret markers
             var fret = chord.rt + y;
@@ -354,7 +356,9 @@ function addNote(paper,stringNum,fretNum,numText) {
 
 function initMenu() {
 
-    chordDiv.paper = paper = window.Raphael(chordDiv, window.innerWidth, window.innerHeight);
+    var pWide = chordDiv.offsetWidth;
+    var pHigh = chordDiv.offsetParent.offsetHeight - chordDiv.offsetTop;
+    chordDiv.paper = paper = window.Raphael(chordDiv,pWide,pHigh);
 
     // TODO: don't flash the DOM repeatedly
     var lastNote = "";
