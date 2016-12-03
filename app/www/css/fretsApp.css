@@ -29,7 +29,7 @@ body {
 }
 
 .page {
-  padding: 0px 100px 0px 16px;
+  padding: 0px 0px 0px 16px;
   background-image:url(../img/herringbone.png);
   background-size:16px auto;
   background-repeat: repeat-y;
@@ -41,16 +41,14 @@ body {
   border:solid 0px #999;
   margin:0px auto;
   padding:0 0;
-
 }
 
 .page-content {
-
   background-image:url(../img/adirondack_spruce_5_cup.jpg);
+  background-repeat:repeat-y;
   background-position-y:55px;
   background-size:100% auto;
-  margin-top:-35px;
-  padding-bottom:35px;
+  overflow-x:hidden;
 }
 
 .page-content .buttons-row {
