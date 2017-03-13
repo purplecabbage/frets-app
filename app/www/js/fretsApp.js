@@ -67,6 +67,16 @@ function init() {
     $$("#strumDown").on('click',function(){
         strumChord(false);
     });
+
+    // var isScrolling = false;
+    // scrollPanel.addEventListener("scroll",function(e) {
+    //     if(!isScrolling) {
+    //         setInterval(function() {
+    //             console.log(scrollPanel.scrollTop);
+    //         },1000);
+    //     }
+    //     isScrolling = true;
+    // });
 }
 
 if ('serviceWorker' in navigator) {
@@ -207,6 +217,8 @@ function setSelectedChord(id) {
 }
 
 function renderChord(index) {
+
+    index = isNaN(index) ? 0 : index;
 
     if(currentIndex == index) {
         return;
