@@ -12,10 +12,19 @@ body {
   margin:0 auto;
 }
 
+/*.view-left {
+  border-right:1px solid #b2b2b2;
+}*/
 
-.view-left {
-  border-right: 1px solid #b2b2b2;
+
+@media (min-width: 665px) {
+  .view-main .navbar .open-panel{display:none;}
 }
+
+
+/*.view-left {
+  border-right: 1px solid #b2b2b2;
+}*/
 /* This will fix flicker navbar in left panel view */
 .panel-left .page-content {
   padding: 0;

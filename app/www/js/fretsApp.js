@@ -26,7 +26,7 @@ var nativeBridge;
 var paper;
 
 var myApp = new Framework7({
-    animateNavBackIcon:true
+    'panelLeftBreakpoint':665
 });
 
 function maxItem(arr) {
@@ -48,6 +48,8 @@ var mainView = myApp.addView('.view-main', {
     domCache: true
 });
 
+
+
 document.addEventListener('DOMContentLoaded', init, false);
 
 function init() {
@@ -60,6 +62,8 @@ function init() {
     guitar = new TunedInstrument();
     guitar.polyphony = 6;
     guitar.loadVoice("sounds/AccGuitar.wav",48);
+    //guitar.loadVoice("sounds/Ensoniq-SQ-1-Biwa-C4.wav",48);
+
 
     $$("#strumUp").on('click',function(){
         strumChord(true);
@@ -80,18 +84,23 @@ function init() {
 }
 
 if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('/sw.js').then(function(registration) {
-    // Registration was successful
-    console.log('ServiceWorker registration successful with scope: ', registration.scope);
-  }).catch(function(err) {
-    // registration failed :(
-    console.log('ServiceWorker registration failed: ', err);
-  });
+    navigator.serviceWorker.register('/sw.js').then(function(registration) {
+        // Registration was successful
+        console.log('ServiceWorker registration successful with scope: ', registration.scope);
+    }).catch(function(err) {
+        // registration failed :(
+        console.log('ServiceWorker registration failed: ', err);
+    });
 }
 
 
 var isPlayingChord = false;
+
 function strumChord(isUp) {
+
+    guitar = new TunedInstrument();
+    guitar.polyphony = 6;
+    guitar.loadVoice("sounds/Steel-Drum-C4.wav",48);
 
     if(!isPlayingChord) {
         isPlayingChord = true;
@@ -207,7 +216,7 @@ function onMenuItem(evt) {
         // an acutal chord
         renderChord(index);
         setSelectedChord(id);
-        myApp.closePanel();
+        myApp.closePanel('left');
     }
 }
 
