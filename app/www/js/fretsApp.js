@@ -98,10 +98,6 @@ var isPlayingChord = false;
 
 function strumChord(isUp) {
 
-    guitar = new TunedInstrument();
-    guitar.polyphony = 6;
-    guitar.loadVoice("sounds/Steel-Drum-C4.wav",48);
-
     if(!isPlayingChord) {
         isPlayingChord = true;
         var chord = chordSource[currentIndex];
