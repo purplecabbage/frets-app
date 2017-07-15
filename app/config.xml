@@ -9,12 +9,10 @@
     </author>
     <content src="index.html" />
     <access origin="*" />
-
-    <plugin name="cordova-plugin-statusbar" version="^1.0.0" />
-    
     <preference name="StatusBarOverlaysWebView" value="false" />
     <preference name="StatusBarBackgroundColor" value="#333333" />
     <preference name="StatusBarStyle" value="lightcontent" />
     <preference name="DisallowOverscroll" value="true" />
-    
+    <engine name="ios" spec="/Repos/cordova/cordova-ios" />
+    <plugin name="cordova-plugin-statusbar" spec="^1.0.0" />
 </widget>

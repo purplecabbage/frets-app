@@ -1,0 +1,17 @@
+{
+  "name": "com.risingj.frets",
+  "version": "0.0.1",
+  "displayName": "frets",
+  "cordova": {
+    "platforms": [
+      "ios"
+    ],
+    "plugins": {
+      "cordova-plugin-statusbar": {}
+    }
+  },
+  "dependencies": {
+    "cordova-ios": "/Repos/cordova/cordova-ios",
+    "cordova-plugin-statusbar": "^1.0.0"
+  }
+}

@@ -11,8 +11,8 @@ var noteStrokeWidth = 3;
 var noteLabelTextClr = "#f8f8f8";
 var noteLabelFontWidth = "20px";
 var noteLabelFontWeight = "bold";
-var gFretMarkerStrokeColor = "#FFFFFF";//rgba(0,0,0,1.0)";
-var gFretMarkerFillColor = "#CCCCCCC";//rgba(16,16,16,0.5)";
+var gFretMarkerStrokeColor = "#FFFFFF";
+var gFretMarkerFillColor = "#DDCDCC";
 
 var currentIndex = -1;
 var chordCount;

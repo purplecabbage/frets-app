@@ -8,7 +8,7 @@ body {
   max-height:720px;*/
   width:100%;
   height:100%;
-  background-color:#213;
+  background-color:#222;
   margin:0 auto;
 }
 
@@ -18,7 +18,8 @@ body {
 
 
 @media (min-width: 665px) {
-  .view-main .navbar .open-panel{display:none;}
+  .view-main .navbar{display:none;}
+  .navbar-through .with-subnavbar .page-content {padding-top:22px}
 }
 
 
@@ -66,7 +67,7 @@ body {
 }
 
 .page-content .buttons-row {
-  margin:0 50px;
+  margin:0 40px;
 }
 
 .item-divider {
@@ -109,7 +110,7 @@ li.item-content {
 
 li.item-content.selected
 {
-    color:#F80;
+    color:#A60;
     background-image:none;
     background-color:#222;
 }
@@ -127,12 +128,7 @@ li.item-content.selected
     line-height: 48px;
     height:48px;
     font-weight:600;
-
     background-image: url(../img/debut_dark.png);
-
-   /*background-image: url(../img/abalone.png);
-   -webkit-background-clip: text;
-   -webkit-text-fill-color: transparent;*/
 }
 /* outer */
 .popup-notes {
@@ -148,10 +144,7 @@ li.item-content.selected
 
 #strumDown, #strumUp {
   color:#FFF;
-  /*border:solid 1px Yellow;*/
 }
-
-
 
 #chordJump {
   width:100%;
@@ -163,7 +156,6 @@ li.item-content.selected
 {
     list-style: none;
     min-width:72px;
-    /*max-width:72px;*/
     min-height:48px;
     border:solid 1px #666;
     text-align:center;
@@ -172,12 +164,9 @@ li.item-content.selected
     color:#111;
     font-weight: bold;
     line-height: 48px;
-    /*display:inline-block;*/
     margin:8px 10px;
     padding:12px 8px;
     background-color:#000;
-
-/*    background-image: url(../img/rose2_wood_@2X.png);*/
     background-image: url(../img/debut_dark.png);
 }
 
