@@ -26,6 +26,7 @@ app/plugins/
 app/hooks/
 
 .vscode/
+node_modules/
 
 
 
