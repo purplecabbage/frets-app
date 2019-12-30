@@ -7,12 +7,12 @@ var headerGap = 80;
 
 var noteStrokeClr = "#000";
 var noteFillClr = "#333";
-var noteStrokeWidth = 3;
+var noteStrokeWidth = 2;
 var noteLabelTextClr = "#f8f8f8";
 var noteLabelFontWidth = "20px";
 var noteLabelFontWeight = "bold";
-var gFretMarkerStrokeColor = "#FFFFFF";
-var gFretMarkerFillColor = "#DDCDCC";
+var gFretMarkerStrokeColor = "#000000";
+var gFretMarkerFillColor = "#FFFFFF";
 
 var currentIndex = -1;
 var chordCount;
@@ -266,8 +266,8 @@ function renderChord(index) {
                                headerGap + y * fretSpace,
                                stringSpace, fretSpace, 2);
 
-            elem.attr({"stroke":"#FFF","stroke-width":5 });
-            elem.attr("fill", "rgba(0,0,0,0.1)");
+            elem.attr({"stroke":"#333","stroke-width":3 });
+            // elem.attr("fill", "#EEE");
 
             // draw the fingerboard fret markers
             fret = chord.rt + y;
@@ -324,11 +324,11 @@ function renderChord(index) {
 
 function drawNut(paper) {
 
-    var elem = paper.rect(gutter,headerGap - 8,
+    var elem = paper.rect(gutter,headerGap - 7,
                           stringSpace * 5, 12, 2);
-    elem.attr({"stroke":"#FFF",
-               "fill":"#CCC",
-               "stroke-width":5});
+    elem.attr({"stroke":"#333",
+               
+               "stroke-width":3});
 
 }
 
