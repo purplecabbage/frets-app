@@ -95,42 +95,43 @@ if ('serviceWorker' in navigator) {
 
 
 var isPlayingChord = false;
+var interval
 
 function strumChord(isUp) {
 
     if(!isPlayingChord) {
         isPlayingChord = true;
-        var chord = chordSource[currentIndex];
-        var frets = chord.fret.split(",");
-        var midiNotes = frets.map(function(elem,index){
-            var fret = parseInt(elem);
-            if(fret > -1) {
-                return ChordData.MidiRoots[index] + fret;
-            }
-            else {
-                return -1;
-            }
-        });
-        if(!isUp) {
-            midiNotes.reverse();
-        }
+
         var index = 0;
         var doLater = function() {
-            if(index >= frets.length) {
-                clearInterval(interval);
-                // todo: turn all notes off
-                isPlayingChord = false;
-            }
-            else {
-                var noteNumber = midiNotes[index];
-                if(noteNumber > -1) {
-                    guitar.noteOn(noteNumber);
+            var chord = chordSource[currentIndex];
+            var frets = chord.fret.split(",");
+            var midiNotes = frets.map(function(elem,index){
+                var fret = parseInt(elem);
+                if(fret > -1) {
+                    return ChordData.MidiRoots[index] + fret;
                 }
-                index++;
+                else {
+                    return -1;
+                }
+            });
+            if(!isUp) {
+                midiNotes.reverse();
             }
+            index = index % frets.length
+            var noteNumber = midiNotes[index];
+            if(noteNumber > -1) {
+                guitar.noteOn(noteNumber);
+            }
+            index++;
         };
-        var interval = setInterval(doLater,200);
+        interval = setInterval(doLater,200);
         doLater();
+    } else {
+        isPlayingChord = false;
+        clearInterval(interval);
+        // todo: turn all notes off
+        
     }
 }
 
